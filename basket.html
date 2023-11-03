@@ -42,11 +42,25 @@
           <a style="color: black" href="wishlist.html">Wishlist <sup>1</sup></a>
           <a href="login.html"
             ><button type="button" class="btn bg-light btn-light">
-              Login
+              <span class="d-block to-be-login">Login</span>
+              <a
+                style="text-decoration: none; color: black"
+                href="profile.html"
+              >
+                <span class="d-none done-login">sa</span>
+              </a>
             </button></a
           >
           <a href="register.html">
-            <button type="button" class="btn bg-dark btn-dark">Register</button>
+            <button type="button" class="btn bg-dark btn-dark">
+              <span class="d-block dont-register">Register</span>
+              <span class="logOutIcon d-none"
+                ><i
+                  class="fa-solid fa-right-from-bracket"
+                  style="color: #ffffff"
+                ></i
+              ></span>
+            </button>
           </a>
         </div>
       </div>
@@ -79,13 +93,22 @@
           <span style="font-size: 20px" class="me-1">TOTAL:</span>
           <span class="me-3 totalPriceValue"><b>0 $</b></span>
           <span
-            ><button type="button" class="btn btn-outline-warning">
+            ><button type="button" class="order-btn btn btn-outline-warning">
               Order
             </button>
           </span>
         </div>
       </div>
+      <div
+        style="font-size: 20px"
+        class="balance mt-3 d-flex d-none justify-content-end"
+      >
+        Balance:
+        <span style="font-weight: bold" class="ms-2 balanceSpan">300</span>
+      </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"
       integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ=="

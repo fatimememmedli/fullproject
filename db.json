@@ -64,7 +64,6 @@
       "password": "Admin123",
       "email": "hello@email.com",
       "balance": 200,
-
       "orders": [
         {
           "id": 355,
@@ -72,6 +71,306 @@
           "orderDate": "Nov 1st 2023, 02:24 am"
         }
       ]
+    },
+    {
+      "email": "sdfsf@gmaill.com",
+      "username": "sdgjk",
+      "password": "12345gsdfg",
+      "balance": "300",
+      "order": [
+        {}
+      ],
+      "id": 2
+    },
+    {
+      "email": "famdli@gmail.com",
+      "username": "famdli",
+      "password": "fatime123",
+      "balance": "500",
+      "order": [
+        {}
+      ],
+      "id": 3
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "500",
+      "order": [
+        {}
+      ],
+      "id": 4
+    },
+    {
+      "email": "eli@gmail.com",
+      "username": "eli",
+      "password": "Admin123",
+      "balance": "500",
+      "order": [
+        {}
+      ],
+      "id": 5
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "500",
+      "order": [
+        {}
+      ],
+      "id": 6
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "500",
+      "order": [
+        {}
+      ],
+      "id": 7
+    },
+    {
+      "email": "nusilefel@mailinator.com",
+      "username": "boxobytof",
+      "password": "Pa$$w0rd!",
+      "balance": "48",
+      "order": [
+        {}
+      ],
+      "id": 8
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "48",
+      "order": [
+        {}
+      ],
+      "id": 9
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "48",
+      "order": [
+        {}
+      ],
+      "id": 10
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "48",
+      "order": [
+        {}
+      ],
+      "id": 11
+    },
+    {
+      "email": "bihadyhy@mailinator.com",
+      "username": "howavyte",
+      "password": "Pa$$w0rd!",
+      "balance": "8",
+      "order": [
+        {}
+      ],
+      "id": 12
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "8",
+      "order": [
+        {}
+      ],
+      "id": 13
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "8",
+      "order": [
+        {}
+      ],
+      "id": 14
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "8",
+      "order": [
+        {}
+      ],
+      "id": 15
+    },
+    {
+      "email": "luzy@mailinator.com",
+      "username": "admin400",
+      "password": "admin123",
+      "balance": "600",
+      "order": [
+        {}
+      ],
+      "id": 16
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "600",
+      "order": [
+        {}
+      ],
+      "id": 17
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "600",
+      "order": [
+        {}
+      ],
+      "id": 18
+    },
+    {
+      "email": "admin123@gmail.com",
+      "username": "admin1212",
+      "password": "admin123",
+      "balance": "500",
+      "order": [
+        {}
+      ],
+      "id": 19
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "500",
+      "order": [
+        {}
+      ],
+      "id": 20
+    },
+    {
+      "email": "memok@mailinator.com",
+      "username": "masofuwoha",
+      "password": "Pa$$w0rd!",
+      "balance": "30",
+      "order": [
+        {}
+      ],
+      "id": 21
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "30",
+      "order": [
+        {}
+      ],
+      "id": 22
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "30",
+      "order": [
+        {}
+      ],
+      "id": 23
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "30",
+      "order": [
+        {}
+      ],
+      "id": 24
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "30",
+      "order": [
+        {}
+      ],
+      "id": 25
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "30",
+      "order": [
+        {}
+      ],
+      "id": 26
+    },
+    {
+      "email": "hello@gmail.com",
+      "username": "hello12",
+      "password": "admin123",
+      "balance": "200",
+      "order": [
+        {}
+      ],
+      "id": 27
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "200",
+      "order": [
+        {}
+      ],
+      "id": 28
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "200",
+      "order": [
+        {}
+      ],
+      "id": 29
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "200",
+      "order": [
+        {}
+      ],
+      "id": 30
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "balance": "200",
+      "order": [
+        {}
+      ],
+      "id": 31
     }
   ],
   "meals": [

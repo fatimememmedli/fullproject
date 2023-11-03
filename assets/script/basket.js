@@ -1,6 +1,11 @@
 let localBasketArr = JSON.parse(localStorage.getItem("basket"));
 let totalPriceBox = document.querySelector(".totalPrice");
 let totalPriceValue = document.querySelector(".totalPriceValue");
+let toBeLogin = document.querySelector(".to-be-login");
+let doneLogin = document.querySelector(".done-login");
+let balance = document.querySelector(".balance");
+let dontRegister = document.querySelector(".dont-register");
+let logOutIcon = document.querySelector(".logOutIcon");
 console.log(localBasketArr);
 let basketArr = [];
 if (localBasketArr) {
@@ -145,3 +150,45 @@ for (let basketdeletebtn of basketDeleteBtns) {
     totalPriceValue.textContent = Math.round(total);
   });
 }
+let balanceSpan = document.querySelector(".balanceSpan");
+let localLoginArr = JSON.parse(localStorage.getItem("login"));
+console.log(localLoginArr);
+// let loginArr = [...localLoginArr];
+let orderBtn = document.querySelector(".order-btn");
+if (localLoginArr) {
+  balance.classList.replace("d-none", "d-block");
+  // console.log(localLoginArr.balance);
+  balanceSpan.textContent = localLoginArr.balance;
+  toBeLogin.classList.replace("d-block", "d-none");
+  doneLogin.classList.replace("d-none", "d-block");
+  dontRegister.classList.replace("d-block", "d-none");
+  logOutIcon.classList.remove("d-none", "d-block");
+  doneLogin.textContent = localLoginArr.username;
+}
+orderBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (localLoginArr) {
+    // balance.classList.replace("d-none", "d-block");
+    // console.log("salam");
+    if (balanceSpan.textContent > totalPriceValue.textContent) {
+      localStorage.removeItem("basket");
+      FavTable.remove();
+      balanceSpan.textContent =
+        balanceSpan.textContent - totalPriceValue.textContent;
+      localLoginArr.balance = balanceSpan.textContent;
+      localStorage.setItem("login", JSON.stringify(localLoginArr));
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Balance is not enough!",
+        footer: '<a href="">Decrease basket item!</a>',
+      });
+    }
+  } else {
+    document.location.href = "login.html";
+  }
+});
+logOutIcon.addEventListener("click", function () {
+  localStorage.removeItem("login");
+});

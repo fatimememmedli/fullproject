@@ -93,4 +93,19 @@ nav .container .links a {
   border-left: 1px solid #e2e2e1;
   border-right: 1px solid #e2e2e1;
   border-radius: 5px;
+}
+
+.login-wrapper {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.login-card {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgb(114, 108, 213);
+  background: linear-gradient(90deg, rgb(114, 108, 213) 0%, rgb(72, 21, 182) 39%, rgb(162, 0, 255) 100%);
 }/*# sourceMappingURL=main.css.map */
