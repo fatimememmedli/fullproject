@@ -1,7 +1,14 @@
 let localBasketArr = JSON.parse(localStorage.getItem("basket"));
+let totalPriceBox = document.querySelector(".totalPrice");
+let totalPriceValue = document.querySelector(".totalPriceValue");
 console.log(localBasketArr);
+let basketArr = [];
+if (localBasketArr) {
+  basketArr = [...localBasketArr];
+}
+
 let FavTable = document.querySelector(".FavTable");
-localBasketArr.forEach((elem) => {
+basketArr.forEach((elem) => {
   FavTable.innerHTML += `
   <tr>
             <th scope="row">${elem.id}</th>
@@ -12,8 +19,9 @@ localBasketArr.forEach((elem) => {
                 <img src="${elem.imageLink}" alt="" />
               </div>
             </td>
-            <td>${elem.price * elem.quantity}</td>
+            <td>${Math.round(elem.price * elem.quantity)}</td>
             <td>${elem.quantity}</td>
+
             <td>
               <button name="${
                 elem.id
@@ -27,7 +35,7 @@ localBasketArr.forEach((elem) => {
             <td>
               <button type="button" name="${
                 elem.id
-              }" class="btn btn-outline-danger">
+              }" class="basket-delete-button btn btn-outline-danger">
                 <i
                   name="${elem.id}"
                   class="fav-delete-button fa-solid fa-trash"
@@ -35,17 +43,42 @@ localBasketArr.forEach((elem) => {
               </button>
             </td>
           </tr>
+          
   `;
-  //   console.log(increaseBtn);
 });
 let increaseBtns = document.querySelectorAll(".increase-btn");
+let total = 0;
 
+for (let element of basketArr) {
+  total += element.price * element.quantity;
+}
+
+console.log(Math.round(total));
+totalPriceValue.textContent = Math.round(total);
 for (let increaseBtn of increaseBtns) {
   increaseBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    let newQuantity = this.parentElement.previousElementSibling.textContent++;
+    this.parentElement.previousElementSibling.textContent++;
+    console.log(this.parentElement.previousElementSibling.textContent);
+    // console.log(basketArr[this.name - 1]);
     this.parentElement.previousElementSibling.previousElementSibling.textContent =
-      Math.round(localBasketArr[this.name - 1].price * newQuantity);
+      Math.round(
+        basketArr[this.name - 1].price *
+          this.parentElement.previousElementSibling.textContent
+      );
+
+    basketArr[this.name - 1].quantity =
+      this.parentElement.previousElementSibling.textContent;
+
+    localStorage.setItem("basket", JSON.stringify(basketArr));
+    let total = 0;
+
+    for (let element of basketArr) {
+      total += element.price * element.quantity;
+    }
+
+    console.log(Math.round(total));
+    totalPriceValue.textContent = Math.round(total);
 
     // localBasketArr.forEach((elem) => {
     //   // console.log(this.name);
@@ -58,3 +91,57 @@ for (let increaseBtn of increaseBtns) {
 }
 let decreaseBtns = document.querySelectorAll(".decrease-btn");
 console.log(decreaseBtns);
+for (let decreaseBtn of decreaseBtns) {
+  decreaseBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (
+      this.parentElement.previousElementSibling.previousElementSibling
+        .textContent > 1
+    ) {
+      this.parentElement.previousElementSibling.previousElementSibling
+        .textContent--;
+
+      this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent =
+        Math.round(
+          basketArr[this.name - 1].price *
+            this.parentElement.previousElementSibling.previousElementSibling
+              .textContent
+        );
+
+      basketArr[this.name - 1].quantity =
+        this.parentElement.previousElementSibling.previousElementSibling.textContent;
+      localStorage.setItem("basket", JSON.stringify(basketArr));
+      let total = 0;
+
+      for (let element of basketArr) {
+        total += element.price * element.quantity;
+      }
+
+      console.log(Math.round(total));
+      totalPriceValue.textContent = Math.round(total);
+    }
+  });
+}
+let removeAllBtn = document.querySelector(".remove-all");
+removeAllBtn.addEventListener("click", function () {
+  localStorage.removeItem("basket");
+  FavTable.remove();
+  totalPriceValue.textContent = 0;
+});
+let basketDeleteBtns = document.querySelectorAll(".basket-delete-button");
+console.log(basketDeleteBtns);
+for (let basketdeletebtn of basketDeleteBtns) {
+  basketdeletebtn.addEventListener("click", function () {
+    basketArr = basketArr.filter((elem) => elem.id != this.name);
+    localStorage.setItem("basket", JSON.stringify(basketArr));
+    this.parentElement.parentElement.remove();
+    let total = 0;
+
+    for (let element of basketArr) {
+      total += element.price * element.quantity;
+    }
+
+    console.log(Math.round(total));
+    totalPriceValue.textContent = Math.round(total);
+  });
+}

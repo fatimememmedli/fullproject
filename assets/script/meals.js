@@ -20,7 +20,7 @@ axios(urlMeals).then((res) => {
                 Price: <b> ${meal.price}</b>
               </p>
               <a
-                href="./detail.html?id=${meal.id}"
+                href="./detailMail.html?id=${meal.id}"
                 class="btn btn-outline-primary"
                 >Detail</a
               >
@@ -30,6 +30,9 @@ axios(urlMeals).then((res) => {
               <button name=${meal.id} type="button" class="basket-btn btn btn-outline-primary">
                 <i class="fa-solid fa-basket-shopping"></i>
               </button>
+              <button type="button" class="btn btn-outline-danger">
+                  <i  name="${meal.id}" class="fav-icon fa-regular fa-heart"></i>
+                </button>
             </div>
           </div>
         </div>
@@ -48,7 +51,7 @@ axios(urlMeals).then((res) => {
     basketbtn.addEventListener("click", function () {
       console.log("salam");
       if (basketArr.find((elem) => elem.id == this.name)) {
-        basketArr[this.name - 1].quantity++;
+        basketArr[basketbtn.name - 1].quantity++;
         localStorage.setItem("basket", JSON.stringify(basketArr));
       } else {
         data.forEach((elem) => {
@@ -58,6 +61,55 @@ axios(urlMeals).then((res) => {
             localStorage.setItem("basket", JSON.stringify(basketArr));
           }
         });
+      }
+    });
+  }
+
+  let favIcons = document.querySelectorAll(".fav-icon");
+  let favMealArr = [];
+  console.log(favIcons);
+  let localFavArr = JSON.parse(localStorage.getItem("favMeal"));
+  if (localFavArr) {
+    favMealArr = [...localFavArr];
+  }
+
+  for (let faviconn of favIcons) {
+    for (let item of favMealArr) {
+      if (faviconn.getAttribute("name") == item.id) {
+        faviconn.classList.replace("fa-regular", "fa-solid");
+      }
+    }
+  }
+
+  // console.log(favIcons);
+  for (let favicon of favIcons) {
+    console.log(favicon);
+    favicon.addEventListener("click", function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      console.log("salam");
+
+      // let result = data.find((elem) => elem.id == favicon.getAttribute("name"));
+      // favArr.push(result);
+      // localStorage.setItem("fav", JSON.stringify(favArr));
+      // favicon.classList.replace("fa-regular", "fa-solid");
+
+      if (favicon.classList.contains("fa-solid")) {
+        favicon.classList.replace("fa-solid", "fa-regular");
+        favMealArr = favMealArr.filter(
+          (elem) => elem.id != this.getAttribute("name")
+        );
+        localStorage.setItem("favMeal", JSON.stringify(favMealArr));
+        // wishlistCount.textContent--;
+      } else {
+        let result = data.find(
+          (elem) => elem.id == favicon.getAttribute("name")
+        );
+        // wishlistCount.textContent++;
+        favMealArr.push(result);
+        // wishlistCount.textContent++;
+        localStorage.setItem("favMeal", JSON.stringify(favMealArr));
+        favicon.classList.replace("fa-regular", "fa-solid");
       }
     });
   }
