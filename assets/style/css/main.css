@@ -108,4 +108,8 @@ nav .container .links a {
   border-radius: 10px;
   background: rgb(114, 108, 213);
   background: linear-gradient(90deg, rgb(114, 108, 213) 0%, rgb(72, 21, 182) 39%, rgb(162, 0, 255) 100%);
+}
+
+.users-details {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }/*# sourceMappingURL=main.css.map */
